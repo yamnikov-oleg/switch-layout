@@ -42,7 +42,7 @@ This script listens to the switch shortcut and runs the command itself.
 
 3. Copy the `switch-layout.py` somewhere in your home folder.
 4. Edit the `SWITCH_SHORTCUTS` and `LAYOUTS_COUNT` at the top of the script accordingly to your needs.
-5. Disable built-in layout-switch shortcut in your system, so it wouldn't interfere with the script.
+5. Disable built-in layout-switch shortcut in your system, so it wouldn't interfere with the script. Also disable CapsLock default behavior in case you use it as switch key.
 6. Run the script: `python3 switch-layout.py`. Try pressing the shortcut and see if it works.
   If it doesn't, feel free to open an issue. Maybe I'll be able to help.
   Press `Ctrl+C` to stop the script.

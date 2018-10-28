@@ -13,6 +13,7 @@ SWITCH_SHORTCUTS = [
     # Examples
     # {keyboard.Key.shift, keyboard.Key.ctrl},  # Shift + Ctrl
     # {keyboard.Key.cmd, keyboard.Key.space},  # Super + Space
+    # {keyboard.KeyCode(65509)},  # CapsLock
 ]
 
 # How many layouts do you have?

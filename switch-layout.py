@@ -27,7 +27,7 @@ class Switcher:
 
         self.monitored_keys = set()
         for shortcut in SWITCH_SHORTCUTS:
-            self.monitored_keys ^= shortcut
+            self.monitored_keys |= shortcut
 
         self.current_layout = 0
 

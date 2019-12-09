@@ -47,3 +47,28 @@ This script listens to the switch shortcut and runs the command itself.
   If it doesn't, feel free to open an issue. Maybe I'll be able to help.
   Press `Ctrl+C` to stop the script.
 7. If it works, you can add this script to autostart programs in your DE to make it start automatically.
+
+## How to set `SWITCH_SHORTCUTS`
+
+Generally, you should be able to select one of the examples given in the comments
+of the script. But it might happen that a shortcut does not register on your system
+even if you put it into `SWITCH_SHORTCUTS`, because your key codes might not match.
+If that's the case, set the `DEBUG` constant to `True` and run the script from terminal:
+
+```python
+DEBUG = True
+```
+
+This way all the pressed and released keys will be printed on the screen, so you
+can just copy them and paste into `SWITCH_SHORTCUTS`:
+
+```
+$ ./switch-layout.py
+Pressed: keyboard.Key.shift
+Pressed: keyboard.KeyCode(65511)
+Released: keyboard.Key.shift
+Released: keyboard.Key.alt
+```
+
+For example, in my case above Alt pressed after Shift got registered by code
+65511. So I had to add it to one of my switch shortcuts to make it work.

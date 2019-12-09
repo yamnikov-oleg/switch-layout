@@ -19,6 +19,20 @@ SWITCH_SHORTCUTS = [
 # How many layouts do you have?
 LAYOUTS_COUNT = 2
 
+# If you're having troubles configuring SWITCH_SHORTCUTS, set this to True.
+# Script will output pressed keys so you could copy-paste them.
+DEBUG = False
+
+
+def format_key(key):
+    """
+    Formats a key the way it should be written in SWITCH_SHORTCUTS list.
+    """
+    if key in keyboard.Key:
+        return "keyboard.Key.{}".format(key.name)
+    else:
+        return "keyboard.KeyCode({})".format(key.vk)
+
 
 class Switcher:
     def __init__(self):
@@ -32,6 +46,9 @@ class Switcher:
         self.current_layout = 0
 
     def on_press(self, key):
+        if DEBUG:
+            print("Pressed: {}".format(format_key(key)))
+
         if key not in self.monitored_keys:
             return
 
@@ -42,6 +59,9 @@ class Switcher:
             self.on_switch()
 
     def on_release(self, key):
+        if DEBUG:
+            print("Released: {}".format(format_key(key)))
+
         self.keys_pressed -= 1
 
         # Sometimes one key is pressed and another is released.

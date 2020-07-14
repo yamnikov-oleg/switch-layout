@@ -28,7 +28,7 @@ def format_key(key):
     """
     Formats a key the way it should be written in SWITCH_SHORTCUTS list.
     """
-    if key in keyboard.Key:
+    if isinstance(key, keyboard.Key):
         return "keyboard.Key.{}".format(key.name)
     else:
         return "keyboard.KeyCode({})".format(key.vk)

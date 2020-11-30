@@ -86,11 +86,16 @@ class Switcher:
             self.current_layout = 0
 
         command = [
-            "gsettings",
-            "set",
-            "org.gnome.desktop.input-sources",
-            "current",
-            str(self.current_layout),
+             "gdbus",
+             "call",
+             "--session",
+             "--dest",
+             "org.gnome.Shell",
+             "--object-path",
+             "/org/gnome/Shell",
+             "--method",
+             "org.gnome.Shell.Eval",
+             "\"imports.ui.status.keyboard.getInputSourceManager().inputSources[{}].activate()\"".format(self.current_layout)
         ]
         _exitcode = subprocess.call(
             command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
